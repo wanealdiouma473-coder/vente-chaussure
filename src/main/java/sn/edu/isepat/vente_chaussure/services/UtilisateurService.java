@@ -5,6 +5,7 @@ import sn.edu.isepat.vente_chaussure.entities.Utilisateur;
 import sn.edu.isepat.vente_chaussure.repositories.UtilisateurRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UtilisateurService {
@@ -46,4 +47,15 @@ public class UtilisateurService {
     public List<Utilisateur> findAllUser() {
         return utilisateurRepository.findAll();
     }
+
+    public Utilisateur findById(Integer id) {
+        Optional<Utilisateur> utilisateurdb = utilisateurRepository.findById(id);
+        if (utilisateurdb.isPresent()) {
+            Utilisateur user = utilisateurdb.get();
+            return user;
+        }
+        throw new RuntimeException("L'utilisateur dont l'id est " + id + " n'existe pas");
+    }
+
+
 }
