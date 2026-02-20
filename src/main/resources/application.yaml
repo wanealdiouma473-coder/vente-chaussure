@@ -4,10 +4,12 @@ spring:
   datasource:
     username: ventechaussure
     password: ventechaussure
-    url: jdbc:mysql://localhost:3308/ventechaussure
+    url: jdbc:mysql://localhost:3306/ventechaussure
   jpa:
     hibernate:
       #ddl auto:create permet de supprimer et de creer les tables a chaque execution
       ddl-auto: create
 
     show-sql: true
+server:
+  port: 1234
